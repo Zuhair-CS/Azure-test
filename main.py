@@ -5,11 +5,6 @@ from models import Item
 
 app = FastAPI()
 
-# Create tables ONLY when app starts
-@app.on_event("startup")
-def startup():
-    Base.metadata.create_all(bind=engine)
-
 def get_db():
     db = SessionLocal()
     try:
